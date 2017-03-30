@@ -1,8 +1,9 @@
 <?php
 
+namespace App;
+
 trait Singleton
 {
-
     protected static $instance = null;
 
     protected function __construct()
@@ -16,5 +17,6 @@ trait Singleton
         }
         return static::$instance;
     }
-
+    //__clone
+    //serialize
 }
