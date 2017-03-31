@@ -9,7 +9,7 @@
     <div class="container">
         <div class="col-md-12 col-lg-12">
             <div class="row">
-                <h3>Таблица новостей</h3>
+                <h3>Администрирование статей</h3>
                 <p>
                     <a href="/admin/create.php" class="btn btn-success">Добавить новость</a>
                 </p>
@@ -17,6 +17,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Автор</th>
                             <th>Заголовок</th>
                             <th>Действия</th>
                         </tr>
@@ -25,11 +26,12 @@
                         <?php foreach(App\Models\Article::findAll() as $topNews): ?>
                         <tr>
                             <td><?php echo $topNews->id; ?></td>
+                            <td><?php echo $topNews->author; ?></td>
                             <td><?php echo $topNews->title; ?></td>
                             <td>
-                                <a class="btn" href="read.php?id='.$row['id'].'">Подробнее</a>
-                                <a class="btn btn-success" href="update.php?id='.$row['id'].'">Редактировать</a>
-                                <a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Удалить</a>
+                                <a class="btn" href="read.php?id=<?php echo $topNews->id; ?>">Подробнее</a>
+                                <a class="btn btn-success" href="update.php?id=<?php echo $topNews->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="delete.php?id=<?php echo $topNews->id; ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

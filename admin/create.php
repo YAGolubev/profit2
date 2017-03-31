@@ -1,5 +1,4 @@
 <?php
-
 if ( !empty($_POST)){
     $authorError = null;
     $titleError = null;
@@ -30,11 +29,7 @@ if ( !empty($_POST)){
         $article->title = $title;
         $article->lead = $lead;
         $article->save();
-        header("Location: /admin/index.php");
+        header('Location: /admin/index.php');
     }
 }
-
-var_dump($_GET);
-var_dump($_POST);
-var_dump($_REQUEST);
 include __DIR__ . '/templates/create.php';

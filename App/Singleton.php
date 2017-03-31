@@ -17,6 +17,4 @@ trait Singleton
         }
         return static::$instance;
     }
-    //__clone
-    //serialize
 }
