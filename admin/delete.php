@@ -13,6 +13,8 @@ if ( null == $id ) {
 if ( !empty($_POST)) {
     require_once __DIR__ . '/../autoload.php';
     $article = App\Models\Article::findById((int) $_POST['id']);
-    $article->delete();
+    if(!$article){
+        $article->delete();
+    }
     header('Location: /admin/index.php');
 }
