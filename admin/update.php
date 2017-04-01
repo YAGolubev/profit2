@@ -41,6 +41,6 @@ if ( !empty($_POST)) {
         $article->title = $title;
         $article->lead = $lead;
         $article->save();
-        header('Location:/admin/read.php');
+        header('Location: /admin/index.php');
     }
 }

@@ -11,27 +11,27 @@
             <h1>Добавление новости</h1>
         </div>
         <form action="/admin/create.php" method="post" role="form" class="form-horizontal">
-            <div class="form-group <?php echo !empty($authorError)?'has-error':'';?>">
+            <div class="form-group <?php echo !empty($authorError)?'has-error':''; ?>">
                 <label class="col-sm-1" for="inputAuthor">Автор</label>
-                <div class="col-sm-5"><input type="text" name="inputAuthor" id="inputAuthor" placeholder="Автор публикации" class="form-control"></div>
+                <div class="col-sm-5"><input type="text" name="inputAuthor" value="<?php echo $author; ?>" id="inputAuthor" placeholder="Автор публикации" class="form-control"></div>
                 <?php if (!empty($authorError)): ?>
-                    <span class="help-block"><?php echo $authorError;?></span>
+                    <span class="help-block"><?php echo $authorError; ?></span>
                 <?php endif; ?>
             </div>
 
-            <div class="form-group <?php echo !empty($titleError)?'has-error':'';?>">
+            <div class="form-group <?php echo !empty($titleError)?'has-error':''; ?>">
                 <label class="col-sm-1" for="inputTitle">Заголовок</label>
-                <div class="col-sm-5"><input type="text" name="inputTitle" id="inputTitle" placeholder="Заголовок публикации" class="form-control"></div>
+                <div class="col-sm-5"><input type="text" name="inputTitle" value="<?php echo $title; ?>" id="inputTitle" placeholder="Заголовок публикации" class="form-control"></div>
                 <?php if (!empty($titleError)): ?>
-                    <span class="help-block"><?php echo $titleError;?></span>
+                    <span class="help-block"><?php echo $titleError; ?></span>
                 <?php endif; ?>
             </div>
 
-            <div class="form-group <?php echo !empty($leadError)?'has-error':'';?>">
+            <div class="form-group <?php echo !empty($leadError)?'has-error':''; ?>">
                 <label class="col-sm-12" for="textLead">Содержимое статьи</label>
-                <div class="col-sm-6"><textarea name="textLead" id="textLead" placeholder="Текст статьи" class="form-control"></textarea></div>
+                <div class="col-sm-6"><textarea name="textLead" id="textLead" value="<?php echo $lead; ?>" placeholder="Текст статьи" class="form-control"></textarea></div>
                 <?php if (!empty($leadError)): ?>
-                    <span class="help-block"><?php echo $leadError;?></span>
+                    <span class="help-block"><?php echo $leadError; ?></span>
                 <?php endif; ?>
             </div>
 
