@@ -6,7 +6,11 @@ $id = null;
 if ( !empty($_GET['id'])) {
     $id = $_GET['id'];
     $article = App\Models\Article::findById((int) $id);
-    include __DIR__ . '/templates/update.php';
+    if(!$article){
+        header('Location: /admin/index.php');
+    }else{
+        include __DIR__ . '/templates/update.php';
+    }
 }
 
 if ( null == $id ) {
