@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 abstract class Model
 {
@@ -15,12 +15,12 @@ abstract class Model
         return $db->query($sql, static::class);
     }
 
-    public static function findById(int $id)
+    public static function findById($id)
     {
         $db = \App\Db::instance();
-        $data = $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id=:id', static::class, [':id' => $id]);
-        if(!empty($data)){
-            return $data[0];
+        $res = $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id=:id', static::class, [':id' => $id]);
+        if(!empty($res)){
+            return $res[0];
         }
         return false;
     }
@@ -31,15 +31,10 @@ abstract class Model
         return $db->query('SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' .$top, static::class);
     }
 
-    public function isNewModel()
-    {
-        return empty($this->id);
-    }
-
     // метод insert(). Он вставляет в базу данных новую запись, основываясь на данных объекта. Не забудьте, что после успешной вставки вы должны заполнить свойство id объекта!
     public function insert()
     {
-        if (!$this->isNewModel()){
+        if (!empty($this->id)){ // isNewModel
             return; //не новые объекты вставлять нельзя
         }
         $columns = [];

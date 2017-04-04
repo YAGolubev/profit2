@@ -6,6 +6,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <p class="navbar-btn">
+                        <a href="/admin/" class="btn btn-success">Admin</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron"></div>
     <div class="container">
         <div class="row">
             <h1>Редактирование новости</h1>
@@ -14,7 +35,7 @@
             <div class="form-group" <?php echo !empty($authorError)?'error':''; ?>">
                 <label class="col-sm-1" for="inputAuthor">Автор</label>
                 <div class="col-sm-5">
-                    <input type="text" name="inputAuthor" id="inputAuthor" placeholder="Автор публикации" class="form-control" value="<?php echo $article->author; ?>">
+                    <input type="text" name="inputAuthor" id="inputAuthor" placeholder="Автор публикации" class="form-control" value="<?php echo $article->author->name; ?>">
                 </div>
                 <?php if (!empty($authorError)): ?>
                     <span class="help-block"><?php echo $authorError; ?></span>

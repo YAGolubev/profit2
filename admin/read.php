@@ -2,9 +2,9 @@
 $id = null;
 
 if ( !empty($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = (int) $_GET['id'];
     require_once __DIR__ . '/../autoload.php';
-    $article = App\Models\Article::findById((int) $id);
+    $article = App\Models\Article::findById($id);
     if(!$article){
         header('Location: /admin/index.php');
     }else{

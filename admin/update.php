@@ -4,8 +4,8 @@ require_once __DIR__ . '/../autoload.php';
 $id = null;
 
 if ( !empty($_GET['id'])) {
-    $id = $_GET['id'];
-    $article = App\Models\Article::findById((int) $id);
+    $id = (int) $_GET['id'];
+    $article = App\Models\Article::findById($id);
     if(!$article){
         header('Location: /admin/index.php');
     }else{

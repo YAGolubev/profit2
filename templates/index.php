@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Top 3 News</title>
+    <title><?php echo $this->title; ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Profit PHP-2</a>
+                <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -26,14 +26,17 @@
             </ul>
         </div>
     </nav>
-
+    <div class="jumbotron"></div>
     <div class="container">
         <div class="row">
-            <?php foreach(App\Models\Article::findTopN(3) as $topNews): ?>
+            <?php foreach($this->news as $article): ?>
                 <div class="col-md-4">
-                    <h2><?php echo $topNews->id; ?> новость - <?php echo $topNews->title; ?></h2>
-                    <p><?php echo $topNews->lead; ?></p>
-                    <p><a class="btn btn-default" role="button" href="/article.php?id=<?php echo $topNews->id; ?>">Подробнее...&raquo;</a></p>
+                    <h2><?php echo $article->id; ?> - <?php echo $article->title; ?></h2>
+                    <p><?php echo $article->lead; ?></p>
+                    <?php if (!empty($article->author->id)): ?>
+                        Автор: <?php echo $article->author->name; ?>
+                    <?php endif; ?>
+                    <p><a class="btn btn-default" role="button" href="/article.php?id=<?php echo $article->id; ?>">Подробнее...&raquo;</a></p>
                 </div>
             <?php endforeach; ?>
         </div>
