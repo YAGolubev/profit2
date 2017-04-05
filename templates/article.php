@@ -29,8 +29,8 @@
 <div class="jumbotron"></div>
 <div class="container">
     <div class="row">
-        <h1><?php echo $this->article->title; ?></h1>
-        <p><?php echo $this->article->lead; ?></p>
+        <h1><?php echo $article->title; ?></h1>
+        <p><?php echo $article->lead; ?></p>
         <a href="/">Назад</a>
     </div>
     <hr>

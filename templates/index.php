@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $this->title; ?></title>
+    <title><?php echo $title;?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
     <div class="jumbotron"></div>
     <div class="container">
         <div class="row">
-            <?php foreach($this->news as $article): ?>
+            <?php foreach($news as $article): ?>
                 <div class="col-md-4">
                     <h2><?php echo $article->id; ?> - <?php echo $article->title; ?></h2>
                     <p><?php echo $article->lead; ?></p>
