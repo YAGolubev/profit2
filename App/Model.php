@@ -25,6 +25,16 @@ abstract class Model
         return false;
     }
 
+    public static function findByName($id)
+    {
+        $db = \App\Db::instance();
+        $res = $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id=:id', static::class, [':id' => $id]);
+        if(!empty($res)){
+            return $res[0];
+        }
+        return false;
+    }
+
     public static function findTopN(int $top)
     {
         $db = \App\Db::instance();

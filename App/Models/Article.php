@@ -20,6 +20,7 @@ class Article extends Model
 
     /**
      * Если запрашивается поле ->author, то сначала проверяем поле ->author_id
+     * Если оно не пусто - делаем запрос к таблице authors и возвращаем результат в виде объекта класса Author
      *
      * @param $name
      * @return bool|null
@@ -28,7 +29,9 @@ class Article extends Model
     {
         switch ($name){
             case 'author':
-                return Author::findById($this->author_id);
+                if ($this->author_id !== false && $this->author_id !== NULL) {
+                    return Author::findById($this->author_id);
+                }
                 break;
             default:
                 return null;
@@ -36,8 +39,6 @@ class Article extends Model
     }
 
     /**
-     * Если оно не пусто - делаем запрос к таблице authors и возвращаем результат в виде объекта класса Author
-     *
      * @param $name
      * @return bool|null
      */
