@@ -1,8 +1,14 @@
 <?php
+
+// $_GET['ctrl']=54
+// $_GET['act]
+
 require_once __DIR__ . '/autoload.php';
 
-$view = new App\View();
-$view->title = 'Новости';
-//$view->news = App\Models\Article::findTopN(2);
-$view->news = App\Models\Article::findAll();
-$view->display(__DIR__ . '/templates/index.php');
+$controllerName = $_GET['ctrl'] ?? 'Index'; // if (isset($_GET['ctrl'])){ $controllerName = $_GET['ctrl']; } else { $controllerName = 'Index'; }
+$controllerClassName = '\\App\\Controllers\\' . $controllerName;
+
+//$controller = new \App\Controllers\Index();
+$controller = new $controllerClassName;
+
+$controller->action('Default');
