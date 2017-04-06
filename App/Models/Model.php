@@ -66,13 +66,13 @@ abstract class Model
         $keys = [];
         $values = [];
         foreach ($this as $name => $value) {
+            $values[':'.$name] = $value;
             if ('id' == $name){
-                $id = $value;
+                continue;
             }
             $keys[] = $name . '=:' . $name;
-            $values[':'.$name] = $value;
         }
-        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $keys) . ' WHERE id='.$id;
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $keys) . ' WHERE id=:id';
         $db = \App\Db::instance();
         $db->execute($sql, $values);
     }
@@ -87,7 +87,7 @@ abstract class Model
         }
     }
 
-    public function delete()// https://github.com/Edline/PHPcoursess/blob/master/HW_2/classes/models/Model.php
+    public function delete()
     {
         $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id';
         $db = \App\Db::instance();
