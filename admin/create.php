@@ -1,4 +1,8 @@
 <?php
+$author = '';
+$title = '';
+$lead = '';
+
 if ( !empty($_POST)){
     $authorError = null;
     $titleError = null;
