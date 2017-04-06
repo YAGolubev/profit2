@@ -30,6 +30,7 @@ if ( !empty($_POST)){
         $article->lead = $lead;
         $article->save();
         header('Location: /admin/index.php');
+        die;
     }
 }
 include __DIR__ . '/templates/create.php';
