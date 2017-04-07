@@ -3,57 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Админка | Статья</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/admin/" class="btn btn-success">Admin</a>
-                    </p>
+    <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-success" href="/admin/">Admin</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="jumbotron"></div>
     <div class="container">
-        <div class="col-lg-12">
-            <div class="row">
-                <h3>Просмотр новости</h3>
-            </div>
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-lg-2">№ п/п</div>
-                    <div class="col-lg-10"><?php echo $article->id; ?></div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-2">Автор</div>
-                    <div class="col-lg-10"><?php echo $article->author->name; ?></div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-2">Заголовок</div>
-                    <div class="col-lg-10"><?php echo $article->title; ?></div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-2">Текст новости</div>
-                    <div class="col-lg-10"><?php echo $article->lead; ?></div>
-                </div>
-                <div class="form-actions">
-                    <a class="btn" href="/admin/index.php">Назад</a>
-                </div>
-            </div>
-        </div>
+        <h1>Просмотр новости</h1>
+        <table class="table table-sm">
+            <tbody>
+                <tr>
+                    <th scope="row">№ п/п</th>
+                    <td><?php echo $article->id; ?></td>
+                </tr>
+                <tr>
+                    <th scope="row">Автор</th>
+                    <td><?php if(!empty($article->author_id)){ echo $article->author->name; } ?></td>
+                </tr>
+                <tr>
+                    <th scope="row">Заголовок</th>
+                    <td><?php echo $article->title; ?></td>
+                </tr>
+                <tr>
+                    <th scope="row">Содержание</th>
+                    <td><?php echo $article->lead; ?></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn" href="/admin/index.php">Назад</a>
     </div>
 </body>
 </html>
