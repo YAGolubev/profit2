@@ -11,7 +11,7 @@ class Db
     protected function __construct()
     {
         $config = \App\Config::instance();
-        $this->dbh = new \PDO('mysql:host=' . $config->data['db']['host'] . ';dbname=' . $config->data['db']['dbname'], $config->data['db']['user'], $config->data['db']['pass']);
+        $this->dbh = new \PDO($config->data['driver'] . ':host=' . $config->data['db']['host'] . ';dbname=' . $config->data['db']['dbname'], $config->data['db']['user'], $config->data['db']['pass']);
     }
 
     public function query(string $sql, string $class = stdClass::class, array $data = [])
