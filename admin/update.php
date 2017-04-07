@@ -8,6 +8,7 @@ if ( !empty($_GET['id'])) {
     $article = App\Models\Article::findById((int) $id);
     if(!$article){
         header('Location: /admin/index.php');
+        die;
     }else{
         include __DIR__ . '/templates/update.php';
     }
@@ -15,6 +16,7 @@ if ( !empty($_GET['id'])) {
 
 if ( null == $id ) {
     header('Location: /admin/index.php');
+    die;
 }
 
 if ( !empty($_POST)) {
@@ -46,5 +48,6 @@ if ( !empty($_POST)) {
         $article->lead = $lead;
         $article->save();
         header('Location: /admin/index.php');
+        die;
     }
 }

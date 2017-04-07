@@ -56,8 +56,10 @@ abstract class Model
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', $params) . ')';
         $db = \App\Db::instance();
-        $db->execute($sql, $data);
-        $this->id = $db->lastInsertId();
+        $res = $db->execute($sql, $data);
+        if(true == $res){
+            $this->id = $db->lastInsertId();
+        }
     }
 
     // реализуйте метод update(). Его задача - обновить поля модели, которая ранее была получена из базы данных. Используйте поле id для понимания того, какую запись нужно обновлять!
@@ -89,7 +91,7 @@ abstract class Model
 
     public function delete()
     {
-        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id = :id';
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id=:id';
         $db = \App\Db::instance();
         $db->execute($sql, [':id' => $this->id]);
     }

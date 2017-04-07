@@ -7,6 +7,7 @@ if ( !empty($_GET['id'])) {
     $article = App\Models\Article::findById((int) $id);
     if(!$article){
         header('Location: /admin/index.php');
+        die;
     }else{
         include __DIR__ . '/templates/read.php';
     }
@@ -14,4 +15,5 @@ if ( !empty($_GET['id'])) {
 
 if ( null == $id ) {
     header('Location: /admin/index.php');
+    die;
 }
