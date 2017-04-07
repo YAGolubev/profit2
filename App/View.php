@@ -12,7 +12,7 @@ class View implements \Countable, \Iterator
     /**  Место хранения перегружаемых данных.  */
     protected $data = [];
 
-    use TView;
+    use TMagic;
 
     public function count()
     {

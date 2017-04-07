@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Админка | Обновить</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <p class="navbar-btn">
-                        <a href="/admin/" class="btn btn-success">Admin</a>
-                    </p>
+    <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-success" href="/admin/">Admin</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="jumbotron"></div>
     <div class="container">
         <div class="row">
             <h1>Редактирование новости</h1>
@@ -35,7 +29,7 @@
             <div class="form-group" <?php echo !empty($authorError)?'error':''; ?>">
                 <label class="col-sm-1" for="inputAuthor">Автор</label>
                 <div class="col-sm-5">
-                    <input type="text" name="inputAuthor" id="inputAuthor" placeholder="Автор публикации" class="form-control" value="<?php echo $article->author->name; ?>">
+                    <input type="text" name="inputAuthor" id="inputAuthor" placeholder="Автор публикации" class="form-control" value="<?php if(!empty($article->author_id)){ echo $article->author->name; } ?>">
                 </div>
                 <?php if (!empty($authorError)): ?>
                     <span class="help-block"><?php echo $authorError; ?></span>
@@ -54,7 +48,7 @@
     
             <div class="form-group <?php echo !empty($leadError)?'has-error':''; ?>">
                 <label class="col-sm-12" for="textLead">Содержимое статьи</label>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <textarea name="textLead" id="textLead" placeholder="Текст статьи" class="form-control"><?php echo $article->lead; ?></textarea>
                 </div>
                 <?php if (!empty($leadError)): ?>

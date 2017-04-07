@@ -2,7 +2,7 @@
 namespace App;
 
 
-trait TView
+trait TMagic
 {
     /**
      * Метод __set() будет выполнен при записи данных в недоступные свойства.
