@@ -3,15 +3,11 @@ $id = null;
 
 if ( !empty($_GET['id'])) {
     $id = (int) $_GET['id'];
-    require_once __DIR__ . '/../autoload.php';
-    $article = App\Models\Article::findById($id);
-    if(!$article){
-        header('Location: /admin/index.php');
-    }else{
-        include __DIR__ . '/templates/read.php';
-    }
+    $controller = new \App\Controllers\Admin();
+    $controller->action('Read');
 }
 
 if ( null == $id ) {
-    header('Location: /admin/index.php');
+    header('Location: /admin/');
+    die;
 }

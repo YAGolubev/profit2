@@ -26,15 +26,17 @@ if ( !empty($_POST)){
         $leadError = 'У статьи должно быть содержание';
     }
     if ($valid) {
-        require_once __DIR__ . '/../autoload.php';
+        //require_once __DIR__ . '/../autoload.php';
         $article = new \App\Models\Article();
         $article->id = null;
         $article->author = $author;
         $article->title = $title;
         $article->lead = $lead;
         $article->save();
-        header('Location: /admin/index.php');
+        header('Location: /admin/');
         die;
     }
 }
-include __DIR__ . '/templates/create.php';
+//include __DIR__ . '/templates/create/';
+$controller = new \App\Controllers\Admin();
+$controller->action('Add');

@@ -1,22 +1,39 @@
 <?php
-require_once __DIR__ . '/../autoload.php';
+//require_once __DIR__ . '/../autoload.php';
 
 $id = null;
 
 if ( !empty($_GET['id'])) {
     $id = (int) $_GET['id'];
-    $article = App\Models\Article::findById($id);
+    $author = $article->author;
+    $title = $article->title;
+    $lead = $article->lead;
+    $controller = new \App\Controllers\Admin();
+    $controller->action('Edit');
+}
+
+if ( null == $id ) {
+    header('Location: /admin/');
+    die;
+}
+
+
+/*
+if ( !empty($_GET['id'])) {
+    //$id = (int) $_GET['id'];
+    //$article = App\Models\Article::findById($id);
     if(!$article){
-        header('Location: /admin/index.php');
+        header('Location: /admin/');
     }else{
-        include __DIR__ . '/templates/update.php';
+        include __DIR__ . '/templates/update/';
     }
 }
 
 if ( null == $id ) {
-    header('Location: /admin/index.php');
+    header('Location: /admin/');
 }
-
+*/
+/*
 if ( !empty($_POST)) {
     $authorError = null;
     $titleError = null;
@@ -48,3 +65,4 @@ if ( !empty($_POST)) {
         header('Location: /admin/index.php');
     }
 }
+*/

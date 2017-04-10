@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Админка</title>
-    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
+    <title><?php echo $title;?></title>
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/index.php">Profit PHP-2</a>
+        <a class="navbar-brand" href="/">Profit PHP-2</a>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -28,7 +28,7 @@
             </div>
             <div class="row">
                 <p>
-                    <a href="/admin/create.php" class="btn btn-success">Добавить новость</a>
+                    <a href="/admin/add/" class="btn btn-success">Добавить новость</a>
                 </p>
             </div>
             <div class="row">
@@ -42,15 +42,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach(App\Models\Article::findAll() as $topNews): ?>
+                        <?php foreach($news as $article): ?>
                         <tr>
-                            <td><?php echo $topNews->id; ?></td>
-                            <td><?php if(!empty($topNews->author_id)){ echo $topNews->author->name; } ?></td>
-                            <td><?php echo $topNews->title; ?></td>
+                            <td><?php echo $article->id; ?></td>
+                            <td><?php if(!empty($article->author_id)){ echo $article->author->name; } ?></td>
+                            <td><?php echo $article->title; ?></td>
                             <td>
-                                <a class="btn" href="read.php?id=<?php echo $topNews->id; ?>">Подробнее</a>
-                                <a class="btn btn-success" href="update.php?id=<?php echo $topNews->id; ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="delete.php?id=<?php echo $topNews->id; ?>">Удалить</a>
+                                <a class="btn" href="read/?id=<?php echo $article->id; ?>">Подробнее</a>
+                                <a class="btn btn-success" href="edit/?id=<?php echo $article->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="delete/?id=<?php echo $article->id; ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

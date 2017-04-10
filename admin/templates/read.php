@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Админка | Статья</title>
-    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
+    <title><?php echo $title;?></title>
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">
@@ -44,7 +44,7 @@
             </tbody>
         </table>
 
-        <a class="btn" href="/admin/index.php">Назад</a>
+        <a class="btn" href="/admin/">Назад</a>
     </div>
 </body>
 </html>
