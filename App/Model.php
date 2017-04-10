@@ -57,7 +57,6 @@ abstract class Model
             $columns[] = $name;
             $params[] = ':'.$name;
             $data[':'.$name] = $value;
-            $values[':'.$name] = $value;
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', $params) . ')';
         $db = \App\Db::instance();

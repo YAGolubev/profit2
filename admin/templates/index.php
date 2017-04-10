@@ -42,15 +42,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach(App\Models\Article::findAll() as $topNews): ?>
+                    <?php foreach($news as $items): ?>
                         <tr>
-                            <td><?php echo $topNews->id; ?></td>
-                            <td><?php if(!empty($topNews->author_id)){ echo $topNews->author->name; } ?></td>
-                            <td><?php echo $topNews->title; ?></td>
+                            <td><?php echo $items->id; ?></td>
+                            <td><?php if(!empty($items->author_id)){ echo $items->author->name; } ?></td>
+                            <td><?php echo $items->title; ?></td>
                             <td>
-                                <a class="btn" href="read.php?id=<?php echo $topNews->id; ?>">Подробнее</a>
-                                <a class="btn btn-success" href="update.php?id=<?php echo $topNews->id; ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="delete.php?id=<?php echo $topNews->id; ?>">Удалить</a>
+                                <a class="btn" href="read.php?id=<?php echo $items->id; ?>">Подробнее</a>
+                                <a class="btn btn-success" href="update.php?id=<?php echo $items->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="delete.php?id=<?php echo $items->id; ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
