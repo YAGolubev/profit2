@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $title;?></title>
-    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $this->title; ?></title>
-    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse sticky-top bg-inverse">
@@ -22,9 +22,11 @@
         </div>
     </nav>
     <div class="container">
-        <h1><?php echo $article->title; ?></h1>
-        <p><?php echo $article->lead; ?></p>
-        <a href="/">Назад</a>
+        <article>
+            <h1><?php echo $article->title; ?></h1>
+            <p><?php echo $article->lead; ?></p>
+            <a href="/">Назад</a>
+        </article>
     </div> <!-- /container -->
 </body>
 </html>
