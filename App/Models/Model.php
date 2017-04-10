@@ -31,11 +31,6 @@ abstract class Model
         return $db->query('SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' .$top, static::class);
     }
 
-    public function isNewModel()
-    {
-        return empty($this->id);
-    }
-
     // метод insert(). Он вставляет в базу данных новую запись, основываясь на данных объекта. Не забудьте, что после успешной вставки вы должны заполнить свойство id объекта!
     public function insert()
     {
@@ -52,7 +47,6 @@ abstract class Model
             $columns[] = $name;
             $params[] = ':'.$name;
             $data[':'.$name] = $value;
-            $values[':'.$name] = $value;
         }
         $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $columns) . ') VALUES (' . implode(', ', $params) . ')';
         $db = \App\Db::instance();
