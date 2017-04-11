@@ -1,20 +1,8 @@
 <?php
-//require_once __DIR__ . '/../autoload.php';
-
-$id = null;
 
 if ( !empty($_GET['id'])) {
-    $id = (int) $_GET['id'];
-    $author = $article->author;
-    $title = $article->title;
-    $lead = $article->lead;
     $controller = new \App\Controllers\Admin();
     $controller->action('Edit');
-}
-
-if ( null == $id ) {
-    header('Location: /admin/');
-    die;
 }
 
 

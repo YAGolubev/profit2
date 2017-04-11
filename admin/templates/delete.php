@@ -26,9 +26,10 @@
             <div class="row">
                 <h3>Удаление новости</h3>
             </div>
-            <form class="form-horizontal" action="/admin/" method="post">
-                <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                <p class="alert alert-error">Точно удалить?</p>
+            <form class="form-horizontal" action="/admin/delete.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $article->id; ?>"/>
+                <p class="alert alert-error">Вы собираетесь удалить запись с ID=<?php echo $article->id; ?>, "<?php echo $article->title; ?>", "<?php echo $article->lead; ?>"</p>
+                <p class="alert alert-error">Подтверждаете?</p>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-danger">Да</button>
                     <a class="btn" href="/admin/">Нет</a>

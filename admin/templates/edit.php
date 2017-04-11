@@ -25,7 +25,7 @@
         <div class="row">
             <h1>Редактирование новости</h1>
         </div>
-        <form action="/admin/edit/?id=<?php echo $id; ?>" method="post" role="form" class="form-horizontal">
+        <form action="/admin/edit/?id=<?php echo $article->id; ?>" method="post" role="form" class="form-horizontal">
             <div class="form-group" <?php echo !empty($authorError)?'error':''; ?>">
                 <label class="col-sm-1" for="inputAuthor">Автор</label>
                 <div class="col-sm-5">
@@ -59,7 +59,7 @@
             <div class="form-group">
                 <div class="col-sm-6">
                     <button type="submit" class="btn btn-info pull-right">Сохранить</button>
-                    <a class="btn pull-right" href="/admin/i">Назад</a>
+                    <a class="btn pull-right" href="/admin/">Назад</a>
                 </div>
             </div>
         </form>
