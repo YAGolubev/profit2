@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $title;?></title>
+    <title><?php echo $pageTitle;?></title>
     <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         <div class="row">
             <h1>Добавление новости</h1>
         </div>
-        <form action="/admin/create.php" method="post" role="form" class="form-horizontal">
+        <form action="/admin/add.php" method="post" role="form" class="form-horizontal">
             <div class="form-group <?php echo !empty($authorError)?'has-error':''; ?>">
                 <label class="col-sm-1" for="inputAuthor">Автор</label>
                 <div class="col-sm-5"><input type="text" name="inputAuthor" value="<?php echo $author; ?>" id="inputAuthor" placeholder="Автор публикации" class="form-control"></div>

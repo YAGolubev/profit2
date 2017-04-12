@@ -7,14 +7,14 @@ class Admin
 {
     protected function actionDefault()
     {
-        $this->view->title = 'Админка';
+        $this->view->pageTitle = 'Админка';
         $this->view->news = \App\Models\Article::findAll();
         $this->view->display(__DIR__ . '/../../admin/templates/default.php');
     }
 
     protected function actionRead()
     {
-        $this->view->title = 'Просмотр статьи | Админка';
+        $this->view->pageTitle = 'Просмотр статьи | Админка';
         $this->view->article = \App\Models\Article::findById((int) $_GET['id']);
         if(!$this->view->article){
             header('Location: /admin/');
@@ -26,13 +26,16 @@ class Admin
 
     protected function actionAdd()
     {
-        $this->view->title = 'Добавление статьи | Админка';
-        $this->view->display(__DIR__ . '/../../admin/templates/create.php');
+        $this->view->pageTitle = 'Добавление статьи | Админка';
+        $this->view->author = '';
+        $this->view->title = '';
+        $this->view->lead = '';
+        $this->view->display(__DIR__ . '/../../admin/templates/add.php');
     }
 
     protected function actionEdit()
     {
-        $this->view->title = 'Редактирование статьи | Админка';
+        $this->view->pageTitle = 'Редактирование статьи | Админка';
         $this->view->article = \App\Models\Article::findById((int) $_GET['id']);
         if(!$this->view->article){
             header('Location: /admin/');
@@ -44,7 +47,7 @@ class Admin
 
     protected function actionDelete()
     {
-        $this->view->title = 'Удаление статьи | Админка';;
+        $this->view->pageTitle = 'Удаление статьи | Админка';;
         $this->view->article = \App\Models\Article::findById((int) $_GET['id']);
         if(!$this->view->article){
             header('Location: /admin/');

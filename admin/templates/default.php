@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $title;?></title>
+    <title><?php echo $pageTitle;?></title>
     <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>
@@ -48,9 +48,9 @@
                             <td><?php if(!empty($article->author_id)){ echo $article->author->name; } ?></td>
                             <td><?php echo $article->title; ?></td>
                             <td>
-                                <a class="btn" href="read/?id=<?php echo $article->id; ?>">Подробнее</a>
-                                <a class="btn btn-success" href="edit/?id=<?php echo $article->id; ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="delete/?id=<?php echo $article->id; ?>">Удалить</a>
+                                <a class="btn" href="/admin/read/?id=<?php echo $article->id; ?>">Подробнее</a>
+                                <a class="btn btn-success" href="/admin/edit/?id=<?php echo $article->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="/admin/delete/?id=<?php echo $article->id; ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

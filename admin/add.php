@@ -1,7 +1,5 @@
 <?php
-$author = '';
-$title = '';
-$lead = '';
+namespace App\Models;
 
 if ( !empty($_POST)){
     $authorError = null;
@@ -26,8 +24,9 @@ if ( !empty($_POST)){
         $leadError = 'У статьи должно быть содержание';
     }
     if ($valid) {
-        //require_once __DIR__ . '/../autoload.php';
-        $article = new \App\Models\Article();
+        require_once __DIR__ . '/../autoload.php';
+        //$article = new \App\Models\Article();
+        $article = new Article();
         $article->id = null;
         $article->author = $author;
         $article->title = $title;
@@ -37,6 +36,3 @@ if ( !empty($_POST)){
         die;
     }
 }
-//include __DIR__ . '/templates/create/';
-$controller = new \App\Controllers\Admin();
-$controller->action('Add');

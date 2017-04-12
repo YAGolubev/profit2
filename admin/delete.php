@@ -1,12 +1,11 @@
 <?php
 
-use App\Models\Article;
+namespace App\Models;
+
+require_once __DIR__ . '/../autoload.php';
 
 if (!empty($_POST)) {
-    require_once __DIR__ . '/../autoload.php';
     $article = Article::findById((int) $_POST['id']);
-    if(!$article){
-        $article-> //delete();
-    }
+    $article->delete();
 }
 header('Location: /admin/'); die;

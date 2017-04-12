@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $title;?></title>
+    <title><?php echo $pageTitle;?></title>
     <link rel="stylesheet" href="/templates/css/bootstrap.min.css">
 </head>
 <body>

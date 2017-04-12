@@ -7,7 +7,7 @@ class Index
 {
     protected function actionDefault()
     {
-        $this->view->title = 'Новости';
+        $this->view->pageTitle = 'Новости';
         $this->view->news = \App\Models\Article::findAll();
         $this->view->display(__DIR__ . '/../../templates/default.php');
     }
