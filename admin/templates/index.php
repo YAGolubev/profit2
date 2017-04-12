@@ -29,9 +29,9 @@
                             <td><?php echo $items->author; ?></td>
                             <td><?php echo $items->title; ?></td>
                             <td>
-                                <a class="btn" href="read.php?id=<?php echo $items->id; ?>">Подробнее</a>
-                                <a class="btn btn-success" href="update.php?id=<?php echo $items->id; ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="delete.php?id=<?php echo $items->id; ?>">Удалить</a>
+                                <a class="btn" href="/admin/read.php?id=<?php echo $items->id; ?>">Подробнее</a>
+                                <a class="btn btn-success" href="/admin/update.php?id=<?php echo $items->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="/admin/delete.php?id=<?php echo $items->id; ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>

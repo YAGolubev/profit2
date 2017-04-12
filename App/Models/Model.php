@@ -34,7 +34,7 @@ abstract class Model
     // метод insert(). Он вставляет в базу данных новую запись, основываясь на данных объекта. Не забудьте, что после успешной вставки вы должны заполнить свойство id объекта!
     public function insert()
     {
-        if (!$this->isNewModel()){
+        if (!empty($this->id)){ //isNewModel
             return; //не новые объекты вставлять нельзя
         }
         $columns = [];
