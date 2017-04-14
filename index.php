@@ -13,8 +13,25 @@ if(!empty($parts[1])){
 $controllerClassName = '\\App\\Controllers\\' . $controllerName;
 $controller = new $controllerClassName;
 
-if(!empty($parts[2])){
-    $controller->action($parts[2]);
-}else{
-    $controller->action('Default');
+try {
+    if(!empty($parts[2])){
+        $controller->action($parts[2]);
+    }else{
+        $controller->action('Default');
+    }
+} catch (\App\Exceptions\Core $e){
+    $controller = new \App\Controllers\PageError('Возникло исключение приложения. ' . $e->getMessage());
+    $controller->action('Error');
+} catch (\App\Exceptions\Db $e){
+    $controller = new \App\Controllers\PageError('Возникло исключение БД. ' . $e->getMessage());
+    $controller->action('Error');
+} catch (\App\Exceptions\PageNotFound $e){
+    $controller = new \App\Controllers\Page404('Страница не найдена. ' . $e->getMessage());
+    $controller->action('404');
+} catch (Throwable $e) {
+    echo $e->getMessage(), "\n";
+    $controller = new \App\Controllers\PageError('Продолжение работы невозможно. ' . $e->getMessage());
+    $controller->action('Error');
+} finally {
+    //log
 }

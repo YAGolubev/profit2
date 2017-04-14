@@ -10,10 +10,9 @@ class News
     protected function actionOne()
     {
         $this->view->pageTitle = 'Новость';
-        $this->view->article = Article::findById($_GET['id']);
+        $this->view->article = Article::findById((int) $_GET['id']);
         if(!$this->view->article){
-            header('Location: /');
-            die;
+            throw new \App\Exceptions\PageNotFound('Такой новости не существует.');
         }else{
             $this->view->display(__DIR__ . '/../../templates/article.php');
         }
